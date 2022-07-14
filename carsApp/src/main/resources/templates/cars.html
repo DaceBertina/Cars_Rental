@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Cars</title>
+    <link rel="stylesheet"
+          type = text/css
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+            table, th, td {
+            border: 1px solid black;
+            padding: 1px;
+         }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>Cars available:</h1>
+        <table class="table table-responsive table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>#{headers.brand}>Brand</th>
+                <th>#{headers.model}>Model</th>
+                <th>#{headers.year}>Year</th>
+                <th>#{headers.fuel}>Fuel</th>
+                <th>#{headers.gearbox}>Gearbox</th>
+                <th>#{headers.price}>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="car : ${allCars}">
+                    <td th:text="${car.brand}"></td>
+                    <td th:text="${car.model}"></td>
+                    <td th:text="${car.year}"></td>
+                    <td th:text="${car.fuel}"></td>
+                    <td th:text="${car.gearbox}"></td>
+                    <td th:text="${car.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
